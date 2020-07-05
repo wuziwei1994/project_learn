@@ -1,0 +1,36 @@
+教管系统默认使用的数据库是：SQLite3，若要切换为Mysql数据库，请按以下方法。
+
+1、安装mysql数据库，版本5.6以上即可。之前安装过的飘过
+    若没有安装过，则可以从这里下载：
+    链接：https://pan.baidu.com/s/1hhigCQWJpLMjtzIPOg3FIw 
+    提取码：zp3t 
+
+
+2、安装数据库管理工具，workbench、navicat  任意一个都可以
+    若没有安装过，可以根据这个教程安装。
+    Navicat安装破解教程：http://vip.ytesting.com/q.do?a&id=10007
+
+
+
+3、在navicat 或者 workbench 中，导入数据库脚本《mysql数据库脚本-plesson.sql》。
+
+
+
+===============数据库已经搞定了，接下来就是python项目了==================
+
+4、找到  run.bat 所在的文件夹，依次进入 backend /project   找到  settings.py   打开这个文件，按图《数据库配置文件修改.png》进行修改。
+
+
+5、打开CMD-->输入：pip install mysqlclient==1.3.12  
+
+如果安装报错，放大招：
+pip install mysqlclient==1.3.12 -i http://pypi.douban.com/simple/  --trusted-host pypi.douban.com
+
+========================完毕===========================
+
+6、启动run.bat  ，浏览器访问：http://localhost/mgr/login/login.html
+
+
+
+
+

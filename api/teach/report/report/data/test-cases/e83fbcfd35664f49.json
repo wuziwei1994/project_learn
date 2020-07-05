@@ -1,0 +1,105 @@
+{
+  "uid" : "e83fbcfd35664f49",
+  "name" : "test_login_image",
+  "fullName" : "test_login#test_login_image",
+  "historyId" : "58dbfb4b93482729745a1fddc395380b",
+  "time" : {
+    "start" : 1593249375005,
+    "stop" : 1593249375008,
+    "duration" : 3
+  },
+  "description" : "这里只是做一个web ui自动化的截图效果",
+  "descriptionHtml" : "<p>这里只是做一个web ui自动化的截图效果</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "delete_all_lesson",
+    "time" : {
+      "start" : 1593249372174,
+      "stop" : 1593249374227,
+      "duration" : 2053
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "description" : "这里只是做一个web ui自动化的截图效果",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "1cea13c3c00bed74",
+      "name" : "我是附件截图的名字",
+      "source" : "1cea13c3c00bed74.jpg",
+      "type" : "image/jpg",
+      "size" : 10028
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ {
+    "name" : "delete_all_lesson::fin",
+    "time" : {
+      "start" : 1593249375009,
+      "stop" : 1593249375009,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "登录界面"
+  }, {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "suite",
+    "value" : "test_login"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-36VOCO7"
+  }, {
+    "name" : "thread",
+    "value" : "8120-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_login"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "critical",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e83fbcfd35664f49.json",
+  "parameterValues" : [ ]
+}
