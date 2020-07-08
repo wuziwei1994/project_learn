@@ -1,7 +1,6 @@
 # author：wuziwei   
 # @time:2020-07-07 23:08
 # coding:-*- utf-8 -*-
-
 import random,string
 
 user_dict = {'user1':'123','user2':'123'}
