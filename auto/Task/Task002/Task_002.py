@@ -37,10 +37,46 @@ driver = webdriver.Chrome(r'D:\project_learn\chromedriver.exe')
 
 url = driver.get('https://www.vmall.com/')
 
-title_list = driver.find_elements_by_css_selector('.category-list')
+driver.maximize_window()
 
-for one in title_list:
-    print(one.find_element_by_css_selector())
+time.sleep(1)
+
+# 获取所有一级菜单
+title_list = driver.find_elements_by_css_selector('.category-list >li')
+
+for category in title_list:
+    # 打印一级菜单
+    main_category = category.find_element_by_css_selector('a >span').text
+    print(f'一级菜单：{main_category}')
+    # 鼠标悬停
+    ActionChains(driver).move_to_element(category).perform()
+    # 匹配每一个二级菜单
+    main_category2 = category.find_elements_by_css_selector('li.subcate-item')
+    for category2 in main_category2:
+        main_category = category2.text
+        print(f'\t 二级菜单：{main_category}')
+print('=' * 10, '分割符', '=' * 10)
+
+time.sleep(1)
+# 向下滚动
+driver.execute_script('window.scrollBy(0,1000)')
+time.sleep(1)
+# 找到每个单品
+product = driver.find_elements_by_css_selector('.span-968.fl>ul.grid-list.clearfix >li')
+
+time.sleep(5)
+for one in product:
+    # 判断标题存不存在
+    product_mark = one.find_elements_by_css_selector('.thumb >span')
+    if not product_mark:
+        continue
+    # 获取商品名称
+    product_name = one.find_element_by_css_selector('div').text
+    # 获取商品价格
+    product_prize = one.find_element_by_css_selector('p.grid-price').text
+    # 获取标题名称
+    product_mark_name = one.find_element_by_css_selector('span').text
+    print(f'{product_name}:{product_mark_name},价格{product_prize}')
 
 time.sleep(1.5)
 driver.quit()
