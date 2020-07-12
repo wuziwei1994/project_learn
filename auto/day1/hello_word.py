@@ -2,6 +2,10 @@
 # @time:2020-07-08 20:57
 # coding:-*- utf-
 
+'''
+https:vip.ytesting.com:80/qa01Controller.do?articleInfo&id=ff80808170cc5b4f0170cd884fae0197
+'''
+
 from selenium import webdriver
 
 # 创建浏览器对象
