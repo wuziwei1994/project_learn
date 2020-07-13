@@ -34,11 +34,13 @@ driver.implicitly_wait(3)
 # 点击高级搜索
 more_search = driver.find_element_by_css_selector('.more').click()
 
-# 输入搜索关键词 python
-input_python = driver.find_element_by_css_selector('.el.on >p.ipt >input').send_keys('python')
-
-# 地区选择 杭州
+# 点击选择地区
 driver.find_element_by_css_selector('.el.on >p.addbut > input').click()
+# 取消当前定位
+driver.find_element_by_id('work_position_click_ip_location_000000_030800').click()
+
+# 选择 杭州
+time.sleep(2)
 city_id = driver.find_elements_by_css_selector('.sbar >li')
 for id in city_id:
     if 'H' not in id.text:
@@ -51,7 +53,57 @@ city_choose = driver.find_element_by_id(
 subimt = driver.find_element_by_css_selector('#work_position_click_bottom >#work_position_click_bottom_save').click()
 
 # 职能类别 选 计算机软件 -> 高级软件工程师
+driver.find_element_by_css_selector('#funtype_div >span').click()
+driver.find_element_by_id('funtype_click_center_right_list_category_0100_0100').click()
+driver.find_element_by_id('funtype_click_center_right_list_sub_category_each_0100_0106').click()
+driver.find_element_by_id('funtype_click_bottom_save').click()
 
+time.sleep(3)
+driver.find_element_by_id('indtype_click').click()
+driver.find_element_by_id('indtype_click_center_right_list_category_01_01').click()
+driver.find_element_by_id('indtype_click_bottom_save').click()
+
+# 公司性质选 外资 欧美
+time.sleep(1)
+driver.find_element_by_id('cottype_list').click()
+list = driver.find_elements_by_css_selector('#cottype_list >.ul span ')
+for one in list:
+    if '外资（欧美）' in one.text:
+        one.click()
+        break
+
+# 工作年限选 1-3 年
+time.sleep(1)
+driver.find_element_by_id('workyear_list').click()
+years_list = driver.find_elements_by_css_selector('#workyear_list >.ul span')
+for one in years_list:
+    if '1-3年' in one.text:
+        one.click()
+        break
+
+# 输入搜索关键词 python
+time.sleep(1)
+input_python = driver.find_element_by_css_selector('.el.on >p.ipt >input').send_keys('python')
+
+# 点击搜索
+driver.find_element_by_css_selector('.btnbox.p_sou >span').click()
+
+#点击外层搜索
+time.sleep(2)
+driver.find_element_by_css_selector('.dw_search_in >.p_but').click()
+
+#点击按时间排序
+time.sleep(2)
+driver.find_element_by_css_selector('.rt.order_time >a').click()
+
+#获取当前页职位列表
+job_list = driver.find_elements_by_css_selector('dw_table')
+
+# 获取表格表头
+job_list_title = driver.find_elements_by_css_selector('.dw_table >.el.title>span')
+
+for title in job_list:
+    print(title.text)
 
 time.sleep(5)
-# quit()
+driver.quit()
