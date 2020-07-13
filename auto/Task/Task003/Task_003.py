@@ -88,22 +88,27 @@ input_python = driver.find_element_by_css_selector('.el.on >p.ipt >input').send_
 # 点击搜索
 driver.find_element_by_css_selector('.btnbox.p_sou >span').click()
 
-#点击外层搜索
+# 点击外层搜索
 time.sleep(2)
 driver.find_element_by_css_selector('.dw_search_in >.p_but').click()
 
-#点击按时间排序
+# 点击按时间排序
 time.sleep(2)
 driver.find_element_by_css_selector('.rt.order_time >a').click()
 
-#获取当前页职位列表
-job_list = driver.find_elements_by_css_selector('dw_table')
-
 # 获取表格表头
-job_list_title = driver.find_elements_by_css_selector('.dw_table >.el.title>span')
+find_job_list_title = driver.find_elements_by_css_selector('.dw_table >.el.title>span')
+job_list_title = [title.text for title in find_job_list_title]
+print('|'.join(job_list_title))
 
-for title in job_list:
-    print(title.text)
+# 获取工作信息
+job_list = driver.find_elements_by_css_selector('#resultList >.el')
+for job in job_list:
+    if 'title' in job.get_attribute("class"):
+        continue
+    job_info = job.find_elements_by_css_selector('span')
+    job_info_list = [info.text for info in job_info]
+    print('|'.join(job_info_list))
 
 time.sleep(5)
 driver.quit()
