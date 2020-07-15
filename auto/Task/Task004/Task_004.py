@@ -2,6 +2,8 @@
 # @time:2020-07-13 23:16
 # coding:-*- utf-8 -*-
 '''
+http://vip.ytesting.com/q.do?a&id=ff8080817345903c017348c7acac02ec
+
 使用 opms 系统，进入项目管理，新建一个项目
 添加成功即可，不需要做其他操作
 浏览器访问    127.0.0.1:8088
@@ -12,7 +14,6 @@ OPMS开源部署用户登录信息
 
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
 driver = webdriver.Chrome(r'D:\project_learn\chromedriver.exe')
 
@@ -42,22 +43,25 @@ for one in project:
         one.send_keys('项目A')
     elif '取个代号' in one.get_attribute('placeholder'):
         one.send_keys('这是一个小项目')
-    elif '开始日期' in one.get_attribute('placeholder'):
-        one.send_keys('2020-07-15')
-    elif '结束日期' in one.get_attribute('placeholder'):
-        one.send_keys('2020-07-20')
         break
 # 点击空白处
 driver.find_element_by_css_selector('span.input-group-addon').click()
 
 # 向下滑动
 driver.execute_script('window.scrollBy(0,200)')
+
 time.sleep(2)
-# 点击项目描述
-# driver.find_element_by_css_selector('div .ke-edit').click()
+# 定位到iframe内嵌网页
+iframe = driver.find_element_by_css_selector('iframe.ke-edit-iframe')
+# 切换到iframe
+driver.switch_to.frame(iframe)
+# 输入描述
+driver.find_element_by_css_selector('.ke-content').send_keys('我是一个描述 哈哈哈啊')
+# 退出iframe
+driver.switch_to.default_content()
 
-# 提交
-# driver.find_element_by_css_selector('button.btn.btn-primary').click()
+# 点击提交
+driver.find_element_by_css_selector('button.btn-primary').click()
 
-time.sleep(5)
+time.sleep(3)
 driver.quit()
