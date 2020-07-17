@@ -4,9 +4,9 @@ echo 准备开始运行自动化脚本
 
 
 
-del /f /s /q  D:\teach\report\tmp\*.json
-del /f /s /q  D:\teach\report\tmp\*.jpg
-del /f /s /q  D:\teach\report\report
+del /f /s /q  D:\project_learn\api\teach\report\tmp\*.json
+del /f /s /q  D:\project_learn\api\teach\report\tmp\*.jpg
+del /f /s /q  D:\project_learn\api\teach\report\report
 
 
 
@@ -15,7 +15,7 @@ echo 删除工作区文件，开始运行
 @echo on
 
 
-cd  D:\teach\test_CaseTeach
+cd  D:\project_learn\api\teach\test_CaseTeach
 pytest  -sq --alluredir=../report/tmp --allure-severities=normal,critical
 allure generate  ../report/tmp -o ../report/report --clean
 
