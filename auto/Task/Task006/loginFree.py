@@ -1,15 +1,23 @@
 # author：wuziwei   
-# @time:2020-07-18 11:52
+# @time:2020-07-18 16:53
 # coding:-*- utf-8 -*-
 
+'''
+http://vip.ytesting.com/q.do?a&id=ff80808172521d82017256aa835501cc
+实现一个  免登陆的 po框架
+'''
+
 from selenium import webdriver
+from time import sleep
 from auto.Task.Task006.settings import DRIVERPATH, URL
+from auto.Task.Task006.loginPage import Login
 
 
 class Driver:
     """浏览器驱动工具类"""
     # 初始化为 None
     driver = None
+    cookies = None
 
     @classmethod
     def get_driver(cls, browser_name="Chrome"):
@@ -29,19 +37,26 @@ class Driver:
             cls.driver.maximize_window()
             # 浏览器访问地址
             cls.driver.get(URL)
-
+            cls.login_free()
+            sleep(1)
+            cls.driver.refresh()
+            sleep(1)
+            cls.driver.quit()
         return cls.driver
 
     @classmethod
+    def get_cookie(cls):
+        cls.cookies = Login().login()
+        return cls.cookies
+
+    @classmethod
     def login_free(cls):
-        cookies = [
-            {'domain': '127.0.0.1', 'httpOnly': False, 'name': 'Hm_lpvt_750463144f16fe69eb3ac11bea1c4436', 'path': '/',
-             'secure': False, 'value': '1595062125'},
-            {'domain': '127.0.0.1',  'httpOnly': False,
-             'name': 'Hm_lvt_750463144f16fe69eb3ac11bea1c4436', 'path': '/',
-             'secure': False, 'value': '1595062125'},
-            {'domain': '127.0.0.1',  'httpOnly': True, 'name': 'beegosessionID', 'path': '/',
-             'secure': False, 'value': '282cef6935d2fb34bf94c1191c14f0f7'}]
-        cls.driver.delete_all_cookies()
-        for cookie in cookies:
+        if cls.cookies is None:
+            cls.get_cookie()
+            cls.driver.delete_all_cookies()
+        for cookie in cls.cookies:
             cls.driver.add_cookie(cookie)
+
+
+if __name__ == '__main__':
+    Driver().get_driver()

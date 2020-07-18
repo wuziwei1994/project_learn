@@ -7,7 +7,6 @@ from auto.Task.Task006.settings import USERNAME, PASSWORD
 from selenium.webdriver.common.by import By
 from time import sleep
 
-
 class LoginPage(BasePage):
     def __init__(self):
         # 执行父类的构造方法
@@ -35,11 +34,13 @@ class LoginPage(BasePage):
 
 class Login(LoginPage):
     def login(self):
+        global cookies
         self.loginUserName().send_keys(USERNAME)
         self.loginPassWord().send_keys(PASSWORD)
         self.loginButton().click()
-        sleep(3)
+        cookies = self.driver.get_cookies()
         self.driver.quit()
+        return cookies
 
 
 if __name__ == '__main__':
