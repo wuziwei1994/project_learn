@@ -5,7 +5,7 @@
 from auto.Task.Task006.basePage import BasePage
 from auto.Task.Task006.settings import USERNAME, PASSWORD
 from selenium.webdriver.common.by import By
-from time import sleep
+
 
 class LoginPage(BasePage):
     def __init__(self):

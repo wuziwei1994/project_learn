@@ -23,7 +23,7 @@ class BasePage:
         '''
         WebDriverWait(driver=self.driver, timeout=TIMEOUT, poll_frequency=POLL_FREQUENCY).until(
             EC.visibility_of_element_located(locator))
-        #返回元素对象
+        # 返回元素对象
         return self.driver.find_element(*locator)
 
     def get_elements(self, locator):

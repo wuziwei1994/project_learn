@@ -31,17 +31,3 @@ class Driver:
             cls.driver.get(URL)
 
         return cls.driver
-
-    @classmethod
-    def login_free(cls):
-        cookies = [
-            {'domain': '127.0.0.1', 'httpOnly': False, 'name': 'Hm_lpvt_750463144f16fe69eb3ac11bea1c4436', 'path': '/',
-             'secure': False, 'value': '1595062125'},
-            {'domain': '127.0.0.1',  'httpOnly': False,
-             'name': 'Hm_lvt_750463144f16fe69eb3ac11bea1c4436', 'path': '/',
-             'secure': False, 'value': '1595062125'},
-            {'domain': '127.0.0.1',  'httpOnly': True, 'name': 'beegosessionID', 'path': '/',
-             'secure': False, 'value': '282cef6935d2fb34bf94c1191c14f0f7'}]
-        cls.driver.delete_all_cookies()
-        for cookie in cookies:
-            cls.driver.add_cookie(cookie)
