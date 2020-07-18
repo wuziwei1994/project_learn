@@ -32,6 +32,7 @@ class LoginPage(BasePage):
         """登录按钮元素定位"""
         return self.get_element(self.loginBotton)
 
+
 class Login(LoginPage):
     def login(self):
         self.loginUserName().send_keys(USERNAME)
@@ -40,6 +41,6 @@ class Login(LoginPage):
         sleep(3)
         self.driver.quit()
 
+
 if __name__ == '__main__':
     Login().login()
-
