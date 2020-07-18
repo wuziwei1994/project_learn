@@ -15,8 +15,9 @@ from auto.Task.Task006.loginPage import Login
 
 class Driver:
     """浏览器驱动工具类"""
-    # 初始化为 None
+    # 初始化driver对象为 None
     driver = None
+    # 初始化cookies对象为 None
     cookies = None
 
     @classmethod
@@ -37,8 +38,10 @@ class Driver:
             cls.driver.maximize_window()
             # 浏览器访问地址
             cls.driver.get(URL)
+            # 调用免登陆对象
             cls.login_free()
             sleep(1)
+            # 调用刷新
             cls.driver.refresh()
             sleep(1)
             cls.driver.quit()
@@ -46,14 +49,20 @@ class Driver:
 
     @classmethod
     def get_cookie(cls):
+        """获取cookies，并返回cookies"""
         cls.cookies = Login().login()
         return cls.cookies
 
     @classmethod
     def login_free(cls):
+        """获取cookies，删除原cookies，添加新cookies"""
+        # 判断cookie是否为空，如果是则调用获取cookies方法
         if cls.cookies is None:
+            # 调用cookies获取方法
             cls.get_cookie()
+            # 删除原本的cookies
             cls.driver.delete_all_cookies()
+        # 循环添加cookies
         for cookie in cls.cookies:
             cls.driver.add_cookie(cookie)
 
