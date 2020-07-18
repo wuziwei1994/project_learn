@@ -41,7 +41,3 @@ class Login(LoginPage):
         cookies = self.driver.get_cookies()
         self.driver.quit()
         return cookies
-
-
-if __name__ == '__main__':
-    Login().login()
