@@ -10,4 +10,4 @@ settings.py 保存所需要的配置文件
 driver.py 保存所需要工具方法 --- 初始化浏览器对象，默认Chrome
 basePage.py 构造driver对象，并加入显示等待，返回元素对象/元素列表
 loginPage.py 构造元素定位方法以及表达式，获取元素方法，进行登录
-loginFree.py 获取登录后的cookie，删除原cookie添加新cookie，实现免登陆
+loginFree.py -- 作业 ： 获取登录后的cookie，删除原cookie添加新cookie，实现免登陆
