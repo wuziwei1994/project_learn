@@ -23,5 +23,6 @@ boss = {
     'skipServerInstallation': True  # 跳过UI2的安装，如果第一次运行程序，不要添加该配置
 }
 
-old_password = 'Ceshi123'
-new_password = 'Ceshi1234'
+old_password = 'Ceshi1234'
+new_password = 'Ceshi123'
+user_name = '13316674508'

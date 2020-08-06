@@ -16,7 +16,7 @@ driver.page_source
 '''
 
 from appium import webdriver
-from app.Task.Task003.config import boss, old_password, new_password
+from app.Task.Task004.config import boss, old_password, new_password
 import time
 
 # 初始化driver对象-用于控制手机-启动被测应用
