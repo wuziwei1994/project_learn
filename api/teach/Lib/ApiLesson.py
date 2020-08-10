@@ -1,7 +1,7 @@
 # author：xintian   
 # time:2020-06-17
 #-*- coding: utf-8 -*-
-from config import HOST
+from api.teach.config  import HOST
 import requests
 import json
 from Lib.ApiLogin import LoginClass
